@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AppBar, IconButton, Toolbar, Drawer, Button, Avatar, useMediaQuery } from '@mui/material';
 import { Menu, AccountCircle, Brightness4, Brightness7 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 
-import useStyles from './styles'
+import { Sidebar } from '..';
+import useStyles from './styles';
 
 const NavBar = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
   const classes = useStyles();
   const isMobile = useMediaQuery('(max-width:600px)');
   const theme = useTheme(); // for switching light mode
@@ -56,6 +58,27 @@ const NavBar = () => {
           {isMobile && 'Search...'}
         </Toolbar>
       </AppBar>
+
+      {/* Below is sideBar */}
+      <div>
+        <nav className={classes.drawer}>
+            {isMobile ? (
+              <Drawer
+                variant='temporary'
+                anchor='right'
+                open={mobileOpen}
+                classes={{ paper: classes.drawerPaper }}
+                ModalProps={{ keepMounted: true }}
+              >
+              <Sidebar setMobileOpen={setMobileOpen} />
+              </Drawer>
+            ) : (
+              <Drawer>
+
+              </Drawer>
+            )}
+        </nav>
+      </div>
     </>
   )
 }
