@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 import useStyles from './styles';
 import { Movie } from '..';
 
-const MovieList = () => {
+const MovieList = ({ movies }) => {
   const classes = useStyles();
   console.log('movie list'); 
 
