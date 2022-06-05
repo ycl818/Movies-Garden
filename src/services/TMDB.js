@@ -18,4 +18,4 @@ export const tmdbApi = createApi({
 // use endpoint created by createApi will auto create a hook
 export const {
   useGetMovieQuery,
-} = tmdbApi;
+} = tmdbApi; // from this
