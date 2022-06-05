@@ -22,6 +22,7 @@ const Movie = ({movie, i}) => {
         </Link> 
       </Grow>
       <Typography className={classes.title} variant="h5">{movie.title}</Typography>
+      <Rating readOnly value={movie.vote_average / 2 } precision={0.1} />
     </Grid>
   );
 }
