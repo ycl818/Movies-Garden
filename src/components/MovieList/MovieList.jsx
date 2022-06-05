@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { Grid } from '@mui/material';
+
+import useStyles from './styles';
 
 const MovieList = () => {
+  const classes = useStyles();
   console.log('movie list'); 
+
   return (
-    <div>MovieList</div>
+    <Grid container className={classes.movieContainer}>
+      MovieList
+    </Grid>
   )
 }
 
