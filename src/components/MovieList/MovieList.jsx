@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid } from '@mui/material';
 
 import useStyles from './styles';
+import { Movie } from '..';
 
 const MovieList = () => {
   const classes = useStyles();
@@ -16,4 +17,4 @@ const MovieList = () => {
   )
 }
 
-export default MovieList
+export default MovieList;
