@@ -12,10 +12,10 @@ const theme = createTheme({});
 ReactDOM.render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <App/>
-      </BrowserRouter>
-    </ThemeProvider>
+        <BrowserRouter>
+          <App/>
+        </BrowserRouter>
+      </ThemeProvider>
     </Provider>,
     
     document.getElementById('root')
