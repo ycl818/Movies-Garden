@@ -59,7 +59,7 @@ const NavBar = () => {
         </Toolbar>
       </AppBar>
 
-      {/* Below is sideBar */}
+      {/* Below here is sideBar */}
       <div>
         <nav className={classes.drawer}>
             {isMobile ? (
