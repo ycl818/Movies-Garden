@@ -55,7 +55,7 @@ const NavBar = () => {
               </Button>
             )}
           </div>
-          {isMobile && <Search />}}
+          {isMobile && <Search />}
         </Toolbar>
       </AppBar>
 
