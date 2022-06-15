@@ -40,5 +40,5 @@ export const createSessionId = async () => {
       } catch (error) {
         console.log(error);
       }
-    }
+    } 
 }

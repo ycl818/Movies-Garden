@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 
 import { Sidebar, Search } from '..';
-import { fetchToken, createSessionId, moviesApi } from '../../utils';
+import { fetchToken, createSessionId, moviesApi } from '../../utils';  // get session token 
 import useStyles from './styles';
 
 const NavBar = () => {
@@ -15,7 +15,7 @@ const NavBar = () => {
   const theme = useTheme(); // for switching light mode
   const isAuthenticated = false;
 
-  const token = localStorage.getItem('request_token');
+  const token = localStorage.getItem('request_token'); //for useEffect 
   const sessionIdFromLocalStorage = localStorage.getItem('session_id');
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const NavBar = () => {
           const { data: userData } = await moviesApi.get(`/account?session_id=${sessionId}`);
         } 
       }
-    }
+    };
   }, [token]);
 
   return (
