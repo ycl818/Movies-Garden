@@ -5,12 +5,34 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
-const MovieInformation = () => {
+import useStyles from './styles';
+import { useGetMovieQuery } from '../../services/TMDB';
 
-  console.log('Movie Information');
+const MovieInformation = () => {
   const { id } = useParams();
+  const { data, isFetching, error } = useGetMovieQuery(id);
+  const classes = useStyles();
+  
+  if(isFetching) {
+    return (
+      <Box display="flex" justifyContent="center" alignContent="center"> 
+        <CircularProgress size="8rem" />
+      </Box>
+    );
+  }
+
+  if(error) {
+    return (
+      <Box display="flex" justifyContent="center" alignContent="center"> 
+        <Link to='/'>Something has gone wrong - Go back</Link>
+      </Box>
+    );
+  }
+
   return (
-    <div>MovieInformation {id}</div>
+    <Grid container className={classes.containerSpaceAround}>
+      test
+    </Grid>
   )
 }
 
