@@ -8,14 +8,14 @@ import { searchMovie } from '../../features/currentGenreOrCategory';
 import useStyle from './styles'
 
 const Search = () => {
-  console.log("search");
+  
   const classes = useStyle();
   const [query, setQuery] = useState('');
   const dispatch = useDispatch();
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
-      console.log("here", query);
+      //console.log("here", query);
       dispatch(searchMovie(query));
     }
   }
