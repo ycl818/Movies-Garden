@@ -10,6 +10,7 @@ import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
 import genresIcons from '../../assets/genres';
 import useStyles from './styles';
 import { useGetMovieQuery } from '../../services/TMDB';
+import { MovieList } from '..'
 
 const MovieInformation = () => {
   const { id } = useParams();
@@ -140,6 +141,10 @@ const MovieInformation = () => {
           You might also like : 
         </Typography>
         {/* Loop through the recommended movies... */}
+        {recommendations
+          ? <MovieList movies={recommendations} numberOfMovies={12}/> 
+          : <Box>Sorry, nothing was found.</Box>
+        }
       </Box>
     </Grid>
   )
