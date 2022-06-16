@@ -55,8 +55,16 @@ const Actors = () => {
           Born: {new Date(data?.birthday).toDateString()}
         </Typography>
         <Typography variant='body1' align='justify' paragraph>
-          {data?.biography || `Sorry , no biography yet...`}
+          {data?.biography || `Sorry, no biography yet...`}
         </Typography>
+        <Box marginTop="2rem" display="flex" justifyContent="space-around">
+          <Button variant='contained' color="primary" target="_blank" href={`https://www.imdb.com/name/${data?.imdb_id}`}>
+            IMDB - Information
+          </Button>
+          <Button startIcon={<ArrowBack />} onClick={() => history.goBack()} color="primary">
+            Back
+          </Button>
+        </Box>
       </Grid>
     </Grid>
    </>
