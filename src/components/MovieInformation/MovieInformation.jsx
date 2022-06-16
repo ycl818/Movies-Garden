@@ -91,6 +91,18 @@ const MovieInformation = () => {
               </Grid>
             )).slice(0,6)}
         </Grid>
+        {/* links */}
+        <Grid item container style={{marginTop: '2rem'}}>
+            <div className={classes.buttonContainer}>
+              <Grid item xs={12} sm={6} className={classes.buttonContainer}>
+                <ButtonGroup size="small" variant='outlined'>
+                  <Button target="_blank" rel="noopener noreferrer" href={data?.homepage} endIcon={<Language />}>Website</Button>
+                  <Button target="_blank" rel="noopener noreferrer" href={`https://www.imdb.com/title/${data?.imdb_id}`} endIcon={<MovieIcon />}>IMDB</Button>
+                  <Button onClick={()=>{}} href="#" endIcon={<Theaters />}>Trailer</Button>
+                </ButtonGroup>
+              </Grid>
+            </div>
+        </Grid>
       </Grid>
     </Grid>
   )
