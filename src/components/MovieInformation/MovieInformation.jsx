@@ -21,14 +21,14 @@ const MovieInformation = () => {
 
   const { data: recommendations, isFetching: isRecommendationsFetching } = useGetRecommendationQuery({ list: '/recommendations', movie_id: id });
 
-  const isMovieFavorited = true;
+  const isMovieFavorited = false;
   const isMovieWatchlisted = false;
 
-  const addToFavorites = () => {
+  const addToFavorites = async () => {
 
   };
 
-  const addToWatchList = () => {
+  const addToWatchList = async () => {
 
   };
 
@@ -54,7 +54,7 @@ const MovieInformation = () => {
 
   return (
     <Grid container className={classes.containerSpaceAround}>
-      <Grid item sm={12} lg={4} style={{ display: 'flex', marginBottom: '30px'}}>
+      <Grid item sm={12} lg={4} >
         <img
           className={classes.poster}
           src={`https://image.tmdb.org/t/p/w500/${data?.poster_path}`}
