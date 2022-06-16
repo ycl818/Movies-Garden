@@ -17,7 +17,7 @@ const Actors = () => {
   const { id } = useParams();
   const history = useHistory();
   const classes = useStyles();
-  const page = 1;
+  const [page, setPage] = useState(1);
 
   const { data, isFetching, error } = useGetActorsDetailsQuery(id);
   const { data: movies } = useGetMoviesByActorIdQuery({id, page});
@@ -78,6 +78,7 @@ const Actors = () => {
       </Typography>
       {movies && <MovieList movies={movies} numberOfMovies={12} />}
     </Box>
+    <Pagination currentPage={page} setPage={setPage} totalPages={movies?.total_pages} />
    </>
   )
 }
