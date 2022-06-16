@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
 
 import { useGetMoviesQuery } from '../../services/TMDB';
-import { MovieList } from '..';
+import { MovieList, Pagination } from '..';
 
 const Movies = () => {
   const [page, setPage] = useState(1);
@@ -37,7 +37,11 @@ const Movies = () => {
   if (error) return "An error has occurred.";
 
   return (
-    <MovieList movies={data} />
+    <div>
+       <MovieList movies={data} />
+       <Pagination />
+    </div>
+   
   )
 }
 
