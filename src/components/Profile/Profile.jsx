@@ -3,15 +3,18 @@ import { Typography, Button, Box } from '@mui/material';
 import { ExitToApp } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 
-import {  userSelector } from '../../features/auth'
+import { useGetListQuery } from '../../services/TMDB';
+import {  userSelector } from '../../features/auth';
+import { RatedCards } from '..';
 // Get access ro profile name or id from redux slice
 // display in the profile component
 
 const Profile = () => {
-  const { user } = useSelector(userSelector)
-  console.log('Profile');
+  const { user } = useSelector(userSelector);
 
-  const favoriteMovies = [];
+  const { data: favoriteMovies } = useGetListQuery({listName: 'favorite/movies', accountId: user.id, sessionId: localStorage.getItem('session_id'), page:1 });
+  const { data: watchlistMovies } = useGetListQuery({listName: 'watchlist/movies', accountId: user.id, sessionId: localStorage.getItem('session_id'), page:1 });
+
 
   // clear localStorage and redirect the page
   const logout = () => {
@@ -28,11 +31,12 @@ const Profile = () => {
           Logout &nbsp; <ExitToApp />
         </Button>
       </Box>
-     {!favoriteMovies.length 
+     {!favoriteMovies?.results?.length && !watchlistMovies?.results?.length
      ? <Typography variant='h5'>Add favorites movies to see them here!</Typography>
      : ( 
         <Box>
-          FAVORITE MOVIES
+          <RatedCards  title="Favorite Movies" data={favoriteMovies} />
+          <RatedCards  title="Watchlist" data={watchlistMovies} />
         </Box>
      )}
     </Box>
