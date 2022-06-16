@@ -5,7 +5,7 @@ import { ArrowBack } from '@mui/icons-material';
 
 import useStyles from './styles';
 import { useGetActorsDetailsQuery, useGetMoviesByActorIdQuery } from '../../services/TMDB';
-import { MovieList } from '..'
+import { MovieList, Pagination } from '..'
 
 // use useParams to get the actor's id
 // make a new call using redux toolkit query -> get actor details call

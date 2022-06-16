@@ -12,7 +12,7 @@ const Movies = () => {
   const { genreIdOrCategoryName, searchQuery } = useSelector((state) => state.currentGenreOrCategory);
   const { data, error, isFetching } = useGetMoviesQuery({ genreIdOrCategoryName, page, searchQuery});
 
-  //console.log(data);
+  console.log(data);
   if (isFetching) {
     return (
       <Box display="flex" justifyContent="center">
@@ -38,10 +38,9 @@ const Movies = () => {
 
   return (
     <div>
-       <MovieList movies={data} />
-       <Pagination />
+      <MovieList movies={data} />
+      <Pagination currentPage={page} setPage={setPage} totalPages={data.total_pages}  />
     </div>
-   
   )
 }
 
