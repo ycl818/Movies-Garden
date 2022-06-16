@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
-
+import { useGetRecommendationQuery } from '../../services/TMDB';
 import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
 import genresIcons from '../../assets/genres';
 import useStyles from './styles';
@@ -17,6 +17,8 @@ const MovieInformation = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
+  const { data: recommendations, isFetching: isRecommendationsFetching } = useGetRecommendationQuery({ list: '/recommendations', movie_id: id });
+
   const isMovieFavorited = true;
   const isMovieWatchlisted = false;
 
@@ -27,6 +29,8 @@ const MovieInformation = () => {
   const addToWatchList = () => {
 
   };
+
+  console.log(recommendations);
   
   if(isFetching) {
     return (
@@ -131,6 +135,12 @@ const MovieInformation = () => {
             </div>
         </Grid>
       </Grid>
+      <Box marginTop="5rem" width="100%">
+        <Typography variant='h4' gutterBottom align='center'>
+          You might also like : 
+        </Typography>
+        {/* Loop through the recommended movies... */}
+      </Box>
     </Grid>
   )
 }
