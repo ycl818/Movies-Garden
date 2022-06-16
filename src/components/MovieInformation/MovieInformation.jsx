@@ -80,8 +80,12 @@ const MovieInformation = () => {
         <Typography variant="h5" gutterBottom>
             Top Cast
         </Typography>
-        <Grid>
-          
+        <Grid item container spacing={2}>
+            {data && data.credits?.cast?.map((character, i) => (
+              <Grid key={i} item xs={4} md={2} component={Link} to={`/actors/${character.id}}`} style={{textDecoration: 'none'}}>
+                <img className={classes.castImage} src={`https://image.tmdb.org/t/p/w500/${character.profile_path}`} alt={character.name} />
+              </Grid>
+            ))}
         </Grid>
       </Grid>
     </Grid>
