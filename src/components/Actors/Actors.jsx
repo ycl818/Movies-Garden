@@ -47,6 +47,17 @@ const Actors = () => {
         alt={data.name}
         />
       </Grid>
+      <Grid item lg={7} xl={8} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column'}} >
+        <Typography variant='h2' gutterBottom>
+          {data?.name}
+        </Typography>
+        <Typography variant='h5' gutterBottom>
+          Born: {new Date(data?.birthday).toDateString()}
+        </Typography>
+        <Typography variant='body1' align='justify' paragraph>
+          {data?.biography || `Sorry , no biography yet...`}
+        </Typography>
+      </Grid>
     </Grid>
    </>
   )
