@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
+import genresIcons from '../../assets/genres';
 import useStyles from './styles';
 import { useGetMovieQuery } from '../../services/TMDB';
 
@@ -29,6 +30,8 @@ const MovieInformation = () => {
     );
   }
 
+  console.log(data);
+
   return (
     <Grid container className={classes.containerSpaceAround}>
       <Grid item sm={12} lg={4}>
@@ -48,7 +51,19 @@ const MovieInformation = () => {
         <Grid item className={classes.containerSpaceAround}>
           <Box display="flex" align="center">
             <Rating readOnly value={data.vote_average / 2} />
+            <Typography variant='subtitle1' gutterBottom style={{marginLeft: '10px'}}></Typography>
+            {data.vote_average} / 10
           </Box>
+          <Typography variant='h6' align='center' gutterBottom>
+            {data?.runtime}min {data?.spoken_languages.length > 0 ? `/ ${data?.spoken_languages[0].name}`:""}
+          </Typography>
+        </Grid>
+        <Grid item className={classes.genresContainer}>
+          {data?.genres?.map((genre, i) => (
+            <Link key={genre.name} className={classes.links} to='/' onClick={() => {}}>
+              <img src={genresIcons[genre.name.toLowerCase()]} className={classes.genreImages} height={30} />
+            </Link>
+          ))}
         </Grid>
       </Grid>
     </Grid>
