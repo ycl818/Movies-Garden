@@ -56,6 +56,15 @@ export default makeStyles((theme) => ({
     height:'8em',
     objectFit:'cover',
     borderRadius:'10px'
+  },
+
+  buttonContainer: {
+    display:"flex",
+    justifyContent: 'space-between',
+    width: "100%",
+    [theme.breakpoints.down('sm')]: {
+      flexDirection:'column'
+    }
   }
 
 }));
