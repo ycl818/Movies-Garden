@@ -45,6 +45,11 @@ const MovieInformation = () => {
         <Typography variant='h5' align='center' gutterBottom>
           {data?.tagline} 
         </Typography>
+        <Grid item className={classes.containerSpaceAround}>
+          <Box display="flex" align="center">
+            <Rating readOnly value={data.vote_average / 2} />
+          </Box>
+        </Grid>
       </Grid>
     </Grid>
   )
