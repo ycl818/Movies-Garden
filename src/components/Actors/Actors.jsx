@@ -4,7 +4,8 @@ import { useHistory, useParams  } from 'react-router-dom';
 import { ArrowBack } from '@mui/icons-material';
 
 import useStyles from './styles';
-import { useGetActorsDetailsQuery } from '../../services/TMDB';
+import { useGetActorsDetailsQuery, useGetMoviesByActorIdQuery } from '../../services/TMDB';
+import { MovieList } from '..'
 
 // use useParams to get the actor's id
 // make a new call using redux toolkit query -> get actor details call
@@ -14,9 +15,13 @@ import { useGetActorsDetailsQuery } from '../../services/TMDB';
 const Actors = () => {
 
   const { id } = useParams();
-  const { data, isFetching, error } = useGetActorsDetailsQuery(id);
   const history = useHistory();
   const classes = useStyles();
+  const page = 1;
+
+  const { data, isFetching, error } = useGetActorsDetailsQuery(id);
+  const { data: movies } = useGetMoviesByActorIdQuery({id, page});
+  
 
   console.log(data);
   if(isFetching) {
@@ -67,6 +72,12 @@ const Actors = () => {
         </Box>
       </Grid>
     </Grid>
+    <Box margin="2rem 0">
+      <Typography variant='h2' gutterBottom align='center'>
+        Movies
+      </Typography>
+      {movies && <MovieList movies={movies} numberOfMovies={12} />}
+    </Box>
    </>
   )
 }
