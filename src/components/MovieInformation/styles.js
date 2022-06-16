@@ -44,7 +44,8 @@ export default makeStyles((theme) => ({
     display:'flex',
     justifyContent:'center',
     alignItems: 'center',
-    [theme.breakpoints.down('md')]: {
+    textDecoration:'none',
+    [theme.breakpoints.down('sm')]: {
       padding:'0.5rem 1 rem',
     },
 
