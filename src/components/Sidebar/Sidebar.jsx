@@ -22,7 +22,7 @@ const redLogo = cinema;
 
 const blueLogo = nightmode;
 
-const Sidebar = () => {
+const Sidebar = ({ setMobileOpen }) => {
   const { genreIdOrCategoryName } = useSelector((state) => state.currentGenreOrCategory);
   const theme = useTheme();
   const classes = useStyles();
@@ -30,7 +30,9 @@ const Sidebar = () => {
   const { data, isFetching } = useGetGenresQuery();
   const dispatch = useDispatch(); // to send or transfer
 
- 
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [genreIdOrCategoryName]);
   
   return (
     <>
