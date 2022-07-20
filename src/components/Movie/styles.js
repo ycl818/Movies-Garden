@@ -18,8 +18,11 @@ export default makeStyles((theme) => ({
   },
   image: {
     borderRadius: '20px',
-    height: '300px',
+    height: '200px',
     marginBottom: '10px',
+    [theme.breakpoints.up('xs')]: {
+      padding:"2px"
+    },
     '&:hover': {
       transition: "0.3s",
       transform: 'scale(1.05)',
@@ -28,7 +31,7 @@ export default makeStyles((theme) => ({
   title: {
     color: theme.palette.text.primary,
     textOverflow: 'ellipsis', // name too long...
-    width: '230px',
+    width: '150px',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     marginTop: '10px',

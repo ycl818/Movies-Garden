@@ -58,7 +58,7 @@ const MovieInformation = () => {
     setIsMovieWatchlisted((prev) => !prev);
   };
 
-  console.log(recommendations);
+  //console.log(recommendations);
   
   if(isFetching) {
     return (
